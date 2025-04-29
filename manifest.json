@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "MTA Catcher",
+  "version": "1.1",
+  "description": "Universal Catcher",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://beta.console.hayden.ai/*"],
+  "action": {
+    "default_title": "Catcher"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://beta.console.hayden.ai/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
