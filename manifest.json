@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "MTA Catcher",
+  "name": "Special Place Catcher",
   "version": "1.1",
-  "description": "Universal Catcher",
+  "description": "MTA, PPA, LA",
   "permissions": ["scripting", "activeTab"],
   "host_permissions": ["https://beta.console.hayden.ai/*"],
   "action": {
