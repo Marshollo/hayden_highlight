@@ -1,23 +1,29 @@
 function checkText() {
-  const container = document.querySelector('.container-fluid');
+  const numbersToFind = [
+    '14960',
+    '3063',
+    '3077',
+    '25069',
+    '14996',
+    '16838',
+    '10272'
+  ];
 
-  if (container) {
-    const secondLevelElements = container.querySelectorAll('[class*="sc-"]');
-    
-    secondLevelElements.forEach((secondLevelElement) => {
-      const targetElement = secondLevelElement.querySelector('[class*="sc-"]');
+  const xpath = '//*[@id="root"]/div[2]/div[2]/div/div/div[2]/div[1]/div[1]/div[2]';
+  const result = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+  const element = result.singleNodeValue;
 
-      if (targetElement) {
-        const text = targetElement.innerText || '';
+  if (element) {
+    const text = element.innerText || '';
 
-        if (text.includes('Jamaica')) {
-          targetElement.style.backgroundColor = 'red';
-          console.log('Znaleziono tekst zawierający "Schenectady"!');
-        } else {
-          targetElement.style.backgroundColor = ''; // Reset
-        }
-      }
-    });
+    const match = numbersToFind.some(number => text.includes(number));
+
+    if (match) {
+      element.style.backgroundColor = 'red';
+      console.log('Znaleziono dopasowaną liczbę!');
+    } else {
+      element.style.backgroundColor = ''; // Reset
+    }
   }
 }
 
